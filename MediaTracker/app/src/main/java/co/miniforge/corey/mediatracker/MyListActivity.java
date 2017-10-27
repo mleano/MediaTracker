@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.util.LinkedList;
 import java.util.List;
 
+import co.miniforge.corey.mediatracker.json_helpers.JsonWrapper;
 import co.miniforge.corey.mediatracker.media_recycler.MediaRecyclerAdapter;
 import co.miniforge.corey.mediatracker.media_store.MediaStorageUtil;
 import co.miniforge.corey.mediatracker.model.MediaItem;
@@ -102,7 +103,14 @@ public class MyListActivity extends AppCompatActivity {
 //        JSONObject jsonObject = item.toJson();
 //        item = new MediaItem(jsonObject);
 
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+//        //Create a json object
+//        JSONObject myJson = new JSONObject();
+//        //put a value in the object using my JsonWrapper
+//        myJson = JsonWrapper.put("test", 5, myJson);
+//        //Get the value from my object using the JsonWrapper
+//        Toast.makeText(getApplicationContext(),
+//                (int)JsonWrapper.get("test", myJson) + "",
+//                Toast.LENGTH_SHORT).show();
 
         //Update list every 10 sec
         final Handler handler = new Handler();
