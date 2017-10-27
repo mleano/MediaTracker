@@ -47,11 +47,13 @@ public class MediaItem {
 
     public MediaItemType getTypeForObject(MediaItemType value){
         switch (value){
-            case Generic:
-                break;
+            case TV:
+                return MediaItemType.TV;
+            case Movie:
+                return MediaItemType.Movie;
+            default:
+                return MediaItemType.Generic;
         }
-
-        return MediaItemType.Generic;
     }
 
     public JSONObject toJson(){

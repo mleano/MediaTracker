@@ -21,4 +21,18 @@ public class TVItem extends MediaItem {
             //TODO: Create exception logger
         }
     }
+
+    @Override
+    public JSONObject toJson(){
+        JSONObject result = super.toJson();
+
+        try {
+            result.put("currentEpisodesWatched", currentEpisodesWatched);
+            result.put("totalEpisodes", totalEpisodes);
+        } catch (Exception e){
+            //TODO: Create exception logger
+        }
+
+        return result;
+    }
 }

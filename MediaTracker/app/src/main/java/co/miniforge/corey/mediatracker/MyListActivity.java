@@ -23,6 +23,7 @@ import java.util.List;
 import co.miniforge.corey.mediatracker.media_recycler.MediaRecyclerAdapter;
 import co.miniforge.corey.mediatracker.media_store.MediaStorageUtil;
 import co.miniforge.corey.mediatracker.model.MediaItem;
+import co.miniforge.corey.mediatracker.model.MediaItemType;
 
 public class MyListActivity extends AppCompatActivity {
     public static String mediaExtra = "mediaExtra";
@@ -96,8 +97,12 @@ public class MyListActivity extends AppCompatActivity {
 
         updateMediaItems(storageUtil.getMediaDataList());
 
-        MediaItem item = new MediaItem();
-        Toast.makeText(this, item.toJson().toString(), Toast.LENGTH_SHORT).show();
+//        MediaItem item = new MediaItem();
+//        item.type = MediaItemType.Movie;
+//        JSONObject jsonObject = item.toJson();
+//        item = new MediaItem(jsonObject);
+
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 
         //Update list every 10 sec
         final Handler handler = new Handler();

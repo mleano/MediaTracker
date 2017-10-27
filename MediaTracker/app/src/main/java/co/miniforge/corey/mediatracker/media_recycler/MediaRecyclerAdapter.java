@@ -20,12 +20,15 @@ public class MediaRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View inflated = LayoutInflater.from(parent.getContext()).inflate(R.layout.media_item, parent, false);
         return new MediaViewHolder(inflated);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+
         ((MediaViewHolder)holder).bindData(mediaItems.get(position));
     }
 
