@@ -128,6 +128,11 @@ public class MyListActivity extends AppCompatActivity {
 
     public void updateMediaItems(List<MediaItem> mediaItems){
         this.mediaItems = mediaItems;
+        //TEST----
+        MediaItem obj = new MediaItem();
+        obj.type = MediaItemType.TV;
+        this.mediaItems.add(obj);
+        //-----/
         ((MediaRecyclerAdapter)media_list_recycler.getAdapter()).updateList(this.mediaItems);
     }
 
