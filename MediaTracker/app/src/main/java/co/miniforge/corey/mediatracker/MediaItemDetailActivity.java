@@ -3,8 +3,12 @@ package co.miniforge.corey.mediatracker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import co.miniforge.corey.mediatracker.model.MediaItem;
 
@@ -16,12 +20,19 @@ import co.miniforge.corey.mediatracker.model.MediaItem;
  */
 public class MediaItemDetailActivity extends AppCompatActivity {
 
+    //Fields
+    EditText title;
+    EditText description;
+    EditText url;
+    MediaItem mediaItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_item_detail);
 
         //Get the intent
+        getIntentData();
 
         //Check if the intent has an extra with the tag from MyListActivity
 
@@ -42,7 +53,28 @@ public class MediaItemDetailActivity extends AppCompatActivity {
 
     }
 
+
+    //Helper function to get intent, check if it has an extra from MyListActivity,
+    //if so create a new JSONObject from the string extra, then create a MediaItem
+    //from that JSONObject.
     private void getIntentData() {
-        if(getIntent().hasExtra(MyListActivity.mediaExtra))
+        //If it has a string extra, create a new
+        if(getIntent().hasExtra(MyListActivity.mediaExtra)) {
+            //Retrieve the extra media data
+            String mediaExtraData = getIntent().getStringExtra(MyListActivity.mediaExtra);
+
+            //Create JSONObject
+            try {
+                JSONObject mediaObject = new JSONObject(mediaExtraData);
+            } catch(JSONException e) {
+                Log.e("Error", "Could not create JSONObject " + e.getStackTrace());
+            }
+
+            //Create a new
+        }
+    }
+
+    private void locateViews() {
+
     }
 }
