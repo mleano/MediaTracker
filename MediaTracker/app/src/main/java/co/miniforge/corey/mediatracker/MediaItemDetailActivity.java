@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.json.JSONException;
@@ -24,6 +26,7 @@ public class MediaItemDetailActivity extends AppCompatActivity {
     EditText title;
     EditText description;
     EditText url;
+    Button saveBtn;
     MediaItem mediaItem;
 
     @Override
@@ -31,28 +34,30 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_item_detail);
 
+        //Call function to locate and store views
+        locateViews();
+
         //Call function to get the intent, check if has a string extre, and if so
         //create a JSONObject then MediaItem
         getIntentData();
 
+        //Call function to bind click listener to save button
 
 
-        //For the save button:
-        //When the Save button is clicked, update the media item retrieved
-        //from the intent with the values that are in the EditText fields
 
-        //Pass this media item into the intent as a string extra using the
-        //tag that is in the MyListActivity
 
     }
 
-    //Helper function to locate and store the views
+    //Function to locate and store the views
     private void locateViews() {
-        title = (EditText) findViewById(R.id.)
+        title = (EditText) findViewById(R.id.title_input);
+        description = (EditText) findViewById(R.id.description_input);
+        url = (EditText) findViewById(R.id.url_input);
+        saveBtn = (Button) findViewById(R.id.save_btn);
     }
 
 
-    //Helper function to get intent, check if it has an extra from MyListActivity,
+    //Function to get intent, check if it has an extra from MyListActivity,
     //if so create a new JSONObject from the string extra, then create a MediaItem
     //from that JSONObject.
     private void getIntentData() {
@@ -74,11 +79,38 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             //Create a new MediaItemfrom the JSONObject
             if (mediaObject != null) {
                 mediaItem = new MediaItem(mediaObject);
+
+                //Set
+                title.setText(mediaItem.title);
+                description.setText(mediaItem.description);
+                url.setText(mediaItem.url);
             }
         }
     }
 
-    private void locateViews() {
+    //Function to bind click listener to the save button. When clicked
+    //the media item should be updated.
+    private void bindFunctionality() {
+        //When the Save button is clicked, update the media item retrieved
+        //from the intent with the values that are in the EditText fields
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create intent that would direct back to MyListActivity
+                Intent intent = new Intent(getApplicationContext(), MyListActivity.class);
 
+                //Reassign title, description, and url of media item with values from
+                //the string extra
+                mediaItem.title = title.getText().toString();
+                mediaItem.description = description.getText().toString();
+                mediaItem.url = url.getText().toString();
+
+                //Pass the media item into the intent as a string extra using the tag
+                // in the MyListActivity
+                intent.putExtra(MyListActivity.mediaExtra, mediaItem.toJson().toString());
+
+                startActivity(intent);
+            }
+        });
     }
 }
