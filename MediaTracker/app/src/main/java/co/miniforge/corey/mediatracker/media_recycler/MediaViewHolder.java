@@ -17,6 +17,7 @@ import co.miniforge.corey.mediatracker.model.MediaItem;
  */
 
 public class MediaViewHolder extends RecyclerView.ViewHolder {
+    public static String intentTag = "mediaData";
     TextView mediaName;
     TextView mediaDescription;
 
@@ -45,8 +46,11 @@ public class MediaViewHolder extends RecyclerView.ViewHolder {
         inflated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Create a new activity with this object's data
-                //Hint: mediaItem.toJson().toString() && context.startActivity);
+            //TODO: Create a new activity with this object's data
+            //Hint: mediaItem.toJson().toString() && context.startActivity);
+            Intent intent = new Intent(context, MediaItemDetailActivity.class);
+            intent.putExtra(intentTag, mediaItem.toJson().toString());
+            context.startActivity(intent);
             }
         });
     }

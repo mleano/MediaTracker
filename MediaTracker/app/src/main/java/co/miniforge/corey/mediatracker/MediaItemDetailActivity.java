@@ -15,9 +15,34 @@ import co.miniforge.corey.mediatracker.model.MediaItem;
  * the code in MyListActivity)
  */
 public class MediaItemDetailActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_item_detail);
+
+        //Get the intent
+
+        //Check if the intent has an extra with the tag from MyListActivity
+
+        //If it does, then create a new JSONObect from the string extra
+
+        //Create a new MediaItem from the JSONObject
+
+        //Save it as a class-scope variable
+
+
+
+        //For the save button:
+        //When the Save button is clicked, update the media item retrieved
+        //from the intent with the values that are in the EditText fields
+
+        //Pass this media item into the intent as a string extra using the
+        //tag that is in the MyListActivity
+
+    }
+
+    private void getIntentData() {
+        if(getIntent().hasExtra(MyListActivity.mediaExtra))
     }
 }
