@@ -31,16 +31,9 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_item_detail);
 
-        //Get the intent
+        //Call function to get the intent, check if has a string extre, and if so
+        //create a JSONObject then MediaItem
         getIntentData();
-
-        //Check if the intent has an extra with the tag from MyListActivity
-
-        //If it does, then create a new JSONObect from the string extra
-
-        //Create a new MediaItem from the JSONObject
-
-        //Save it as a class-scope variable
 
 
 
@@ -53,6 +46,11 @@ public class MediaItemDetailActivity extends AppCompatActivity {
 
     }
 
+    //Helper function to locate and store the views
+    private void locateViews() {
+        title = (EditText) findViewById(R.id.)
+    }
+
 
     //Helper function to get intent, check if it has an extra from MyListActivity,
     //if so create a new JSONObject from the string extra, then create a MediaItem
@@ -63,14 +61,20 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             //Retrieve the extra media data
             String mediaExtraData = getIntent().getStringExtra(MyListActivity.mediaExtra);
 
+            //Initialize JSONObject
+            JSONObject mediaObject = null;
+
             //Create JSONObject
             try {
-                JSONObject mediaObject = new JSONObject(mediaExtraData);
+                mediaObject = new JSONObject(mediaExtraData);
             } catch(JSONException e) {
                 Log.e("Error", "Could not create JSONObject " + e.getStackTrace());
             }
 
-            //Create a new
+            //Create a new MediaItemfrom the JSONObject
+            if (mediaObject != null) {
+                mediaItem = new MediaItem(mediaObject);
+            }
         }
     }
 
