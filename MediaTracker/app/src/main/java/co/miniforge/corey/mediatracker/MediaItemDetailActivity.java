@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,11 +42,9 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         //create a JSONObject then MediaItem
         getIntentData();
 
-        //Call function to bind click listener to save button
-
-
-
-
+        //Call function to bind click listener to save button. When the save button
+        //is clicked, the media item info are updated
+        bindFunctionality();
     }
 
     //Function to locate and store the views
@@ -66,12 +65,17 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             //Retrieve the extra media data
             String mediaExtraData = getIntent().getStringExtra(MyListActivity.mediaExtra);
 
+            //For debugging
+            Toast.makeText(getApplicationContext(), mediaExtraData, Toast.LENGTH_LONG).show();
+
             //Initialize JSONObject
             JSONObject mediaObject = null;
 
             //Create JSONObject
             try {
                 mediaObject = new JSONObject(mediaExtraData);
+                Log.i("Test", mediaObject.toString());
+
             } catch(JSONException e) {
                 Log.e("Error", "Could not create JSONObject " + e.getStackTrace());
             }
@@ -80,11 +84,17 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             if (mediaObject != null) {
                 mediaItem = new MediaItem(mediaObject);
 
-                //Set
+                //Set the text of the views with the media item info
                 title.setText(mediaItem.title);
                 description.setText(mediaItem.description);
                 url.setText(mediaItem.url);
+            } else {
+                Log.e("ERROR", "Could not create new media item");
+                Toast.makeText(getApplicationContext(), "Could nto create media item", Toast.LENGTH_LONG).show();
             }
+        } else {
+            Log.i("MSG", "No intent extra to create new media item.");
+            Toast.makeText(getApplicationContext(), "No intent extra", Toast.LENGTH_LONG).show();
         }
     }
 
