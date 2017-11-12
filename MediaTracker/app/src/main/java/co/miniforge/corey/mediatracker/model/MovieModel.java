@@ -6,8 +6,8 @@ import org.json.JSONObject;
  * Created by corey on 10/20/17.
  */
 
-public class MovieItem extends MediaItem {
-    public MovieItem(JSONObject jsonObject) {
+public class MovieModel extends MediaItem {
+    public MovieModel(JSONObject jsonObject) {
         super(jsonObject);
     }
 }
