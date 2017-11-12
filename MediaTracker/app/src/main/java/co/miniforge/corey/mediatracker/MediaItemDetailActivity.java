@@ -79,11 +79,6 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             //Create a new MediaItemfrom the JSONObject
             if (mediaObject != null) {
                 mediaItem = new MediaItem(mediaObject);
-
-                //Set the text of the views with the media item info
-                title.setText(mediaItem.title);
-                description.setText(mediaItem.description);
-                url.setText(mediaItem.url);
             } else {
                 Log.e("ERROR", "Could not create new media item");
             }
