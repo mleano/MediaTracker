@@ -7,6 +7,11 @@ import org.json.JSONObject;
  */
 
 public class MovieModel extends MediaItem {
+
+    //Fields
+    public int myRating;
+    public String genre;
+
     public MovieModel(JSONObject jsonObject) {
         super(jsonObject);
     }
