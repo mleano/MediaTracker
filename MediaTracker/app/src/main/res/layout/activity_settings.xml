@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="co.miniforge.corey.mediatracker.SettingsActivity">
 
+    <Button
+        android:id="@+id/theme_toggle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="87dp"
+        android:text="Toggle Theme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -34,7 +34,7 @@ public class MyListActivity extends AppCompatActivity {
 
     MediaStorageUtil storageUtil;
 
-    ThemeHelper themeHelper;
+//    ThemeHelper themeHelper;
 
     List<MediaItem> mediaItems = new LinkedList<>();
 
@@ -48,7 +48,7 @@ public class MyListActivity extends AppCompatActivity {
         storageUtil = new MediaStorageUtil(getApplicationContext());
 
         //Initialize ThemeHelper
-        themeHelper = new ThemeHelper(getApplicationContext());
+//        themeHelper = new ThemeHelper(getApplicationContext());
 
         locateViews();
 
@@ -167,8 +167,8 @@ public class MyListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch(menuItem.getItemId()) {
             case R.id.action_settings:
-                //Go to settings activity
-                ;
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
         }
 
         return true;
