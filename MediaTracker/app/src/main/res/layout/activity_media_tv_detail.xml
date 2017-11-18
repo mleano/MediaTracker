@@ -37,21 +37,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="URL"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
 
+    <EditText
+        android:id="@+id/current_episodes_watched_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="total episodes watched"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+
+    <EditText
+        android:id="@+id/total_episodes_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="total episodes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_episodes_watched_input" />
+
     <Button
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="28dp"
         android:text="save"
-        app:layout_constraintStart_toStartOf="@+id/url_input"
-        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
