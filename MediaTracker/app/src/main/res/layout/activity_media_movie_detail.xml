@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="URL"
         android:inputType="text"
@@ -48,10 +48,11 @@
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="25dp"
         android:text="save"
-        app:layout_constraintStart_toStartOf="@+id/url_input"
-        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -65,4 +66,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/movie_pic" />
+
+    <EditText
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="genre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+
+    <EditText
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="rating (from 1 to 10)"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genre" />
 </android.support.constraint.ConstraintLayout>
