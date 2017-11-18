@@ -48,6 +48,9 @@ public class MyListActivity extends AppCompatActivity {
         bindData();
 
         handleIntent();
+
+        //Call function to sort media items by name and type
+        sortMediaItems(mediaItems);
     }
 
     void handleIntent(){
@@ -132,5 +135,16 @@ public class MyListActivity extends AppCompatActivity {
 
         storageUtil.saveMediaData(mediaItems);
         updateMediaItems(storageUtil.getMediaDataList());
+    }
+
+    //Function to sort media items by name and then by type
+    public void sortMediaItems(List<MediaItem> mediaItem) {
+        //Use helper class to sort my name then by type
+        MediaItemSortHelper.sortByName(mediaItem);
+        MediaItemSortHelper.sortByType(mediaItem);
+
+        //Store the sorted media items
+        storageUtil.saveMediaData(mediaItems);
+        updateMediaItems(mediaItems);
     }
 }
