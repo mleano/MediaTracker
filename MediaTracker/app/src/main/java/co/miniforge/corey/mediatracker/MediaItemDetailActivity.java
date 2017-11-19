@@ -37,25 +37,25 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_item_detail);
 
-        //Call function to locate and store views
-        locateViews();
+/*        //Call function to locate and store views
+        locateViews();*/
 
         //Call function to get the intent, check if has a string extre, and if so
         //create a JSONObject then MediaItem
         getIntentData();
 
-        //Call function to bind click listener to save button. When the save button
+/*        //Call function to bind click listener to save button. When the save button
         //is clicked, the media item info are updated
-        bindFunctionality();
+        bindFunctionality();*/
     }
 
-    //Function to locate and store the views
+/*    //Function to locate and store the views
     private void locateViews() {
         title = (EditText) findViewById(R.id.title_input);
         description = (EditText) findViewById(R.id.description_input);
         url = (EditText) findViewById(R.id.url_input);
         saveBtn = (Button) findViewById(R.id.save_btn);
-    }
+    }*/
 
 
     //Function to get intent, check if it has an extra from MyListActivity,
@@ -89,7 +89,7 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         }
     }
 
-    //Function to bind click listener to the save button. When clicked
+/*    //Function to bind click listener to the save button. When clicked
     //the media item should be updated.
     private void bindFunctionality() {
         //When the Save button is clicked, update the media item retrieved
@@ -142,5 +142,5 @@ public class MediaItemDetailActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
+    }*/
 }
