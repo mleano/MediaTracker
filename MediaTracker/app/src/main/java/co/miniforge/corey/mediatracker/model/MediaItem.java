@@ -13,7 +13,7 @@ import co.miniforge.corey.mediatracker.media_store.Md5IdHelper;
  */
 
 public class MediaItem {
-
+    //FIELDS
     public String id;
     public String title;
     public String description;
@@ -23,6 +23,8 @@ public class MediaItem {
     //We will do this by creating an enum that can identify the type of item
     public MediaItemType type = MediaItemType.Generic;
 
+
+    //CONSTRUCTORS
     public MediaItem(JSONObject jsonObject){
         try{
             //Generate id based on the object instance (should work :D)
@@ -38,6 +40,15 @@ public class MediaItem {
         }
     }
 
+    //Constructor that takes in a MediaItemType as a parameter
+    public MediaItem(MediaItemType mediaItemType) {
+        this.type = mediaItemType;
+        this.id = Md5IdHelper.idForObject(this);
+        this.title = "defaultTitle";
+        this.description = "defaultDescription";
+        this.url = "defaultUrl";
+    }
+
     public MediaItem(){
         this.id = Md5IdHelper.idForObject(this);
         this.title = "defaultTitle";
@@ -45,15 +56,8 @@ public class MediaItem {
         this.url = "defaultUrl";
     }
 
-/*    public MediaItemType getTypeForObject(MediaItemType value){
-        switch (value){
-            case Generic:
-                break;
-        }
 
-        return MediaItemType.Generic;
-    }*/
-
+    //METHODS
     MediaItemType getTypeForString(String value){
         switch (value){
             case "TV":
