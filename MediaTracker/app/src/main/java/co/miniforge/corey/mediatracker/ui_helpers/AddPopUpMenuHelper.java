@@ -26,6 +26,15 @@ public class AddPopUpMenuHelper implements PopupMenu.OnMenuItemClickListener {
             case R.id.generic:
                 activity.addMediaItem(new MediaItem(MediaItemType.Generic));
                 break;
+            case R.id.tv:
+                activity.addMediaItem(new MediaItem(MediaItemType.TV));
+                break;
+            case R.id.movie:
+                activity.addMediaItem(new MediaItem(MediaItemType.Movie));
+                break;
+            case R.id.youtube:
+                activity.addMediaItem(new MediaItem(MediaItemType.YouTube));
+                break;
         }
 
         return true;
