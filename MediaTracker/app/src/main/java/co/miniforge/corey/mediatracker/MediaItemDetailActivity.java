@@ -1,5 +1,8 @@
 package co.miniforge.corey.mediatracker;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +19,11 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 
 import co.miniforge.corey.mediatracker.model.MediaItem;
+
+import static co.miniforge.corey.mediatracker.model.MediaItemType.Generic;
+import static co.miniforge.corey.mediatracker.model.MediaItemType.Movie;
+import static co.miniforge.corey.mediatracker.model.MediaItemType.TV;
+import static co.miniforge.corey.mediatracker.model.MediaItemType.YouTube;
 
 /**
  * This activity will display the contents of a media item and allow the user to update the contents
@@ -143,4 +151,27 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }*/
+
+    public void createFragmentForMediaItemType(MediaItem item){
+        Fragment fragment;
+        switch(item.type){
+            case Generic:
+                fragment = (Fragment) MediaItemDetailFragment.create(item);
+                break;
+            case Movie:
+                fragment = (Fragment) MediaItemDetailFragment.create(item);
+                break;
+            case TV:
+                fragment = (Fragment) MediaItemDetailFragment.create(item);
+                break;
+            case YouTube:
+                fragment = (Fragment) MediaItemDetailFragment.create(item);
+                break;
+        }
+
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
+    }
 }
