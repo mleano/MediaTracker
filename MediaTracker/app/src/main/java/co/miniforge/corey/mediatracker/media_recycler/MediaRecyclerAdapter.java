@@ -15,6 +15,10 @@ import co.miniforge.corey.mediatracker.model.MediaItem;
  * Created by corey on 10/15/17.
  */
 
+/**
+ * This adapter is used to populate the RecyclerView (which is an android UI list)
+ * with the appropriate layouts, data bindings, and item count
+ */
 public class MediaRecyclerAdapter extends RecyclerView.Adapter {
     private List<MediaItem> mediaItems = new LinkedList<>();
 
