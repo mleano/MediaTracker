@@ -60,6 +60,8 @@ public class MediaItem {
                 return  MediaItemType.TV;
             case "Movie":
                 return  MediaItemType.Movie;
+            case "YouTube":
+                return MediaItemType.YouTube;
             default:
                 return MediaItemType.Generic;
         }
