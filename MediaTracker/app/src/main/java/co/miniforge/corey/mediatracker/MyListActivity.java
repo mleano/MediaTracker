@@ -181,5 +181,11 @@ public class MyListActivity extends AppCompatActivity {
         return true;
     }
 
+    public void addMediaItem(MediaItem item) {
+        this.mediaItems.add(item);
+        storageUtil.saveMediaData(mediaItems);
+        updateMediaItems(mediaItems);
+    }
+
 
 }
