@@ -11,6 +11,7 @@ import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -141,9 +142,36 @@ public class MyListActivity extends AppCompatActivity {
         updateMediaItems(storageUtil.getMediaDataList());
     }
 
+    //Function that adds media items
     public void addMediaItem(MediaItem item) {
         this.mediaItems.add(item);
         storageUtil.saveMediaData(mediaItems);
         updateMediaItems(mediaItems);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_my_list, menu);
+
+               return true;
+    }
+
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         switch(item.getItemId()) {
+             case R.id.sort_by_name:
+                 MediaItemSortHelper.sortByName(mediaItems);
+                 storageUtil.saveMediaData(mediaItems);
+                 updateMediaItems(storageUtil.getMediaDataList());
+                 break;
+             case R.id.sort_by_type:
+                 MediaItemSortHelper.sortByType(mediaItems);
+                 storageUtil.saveMediaData(mediaItems);
+                 updateMediaItems(storageUtil.getMediaDataList());
+                 break;
+         }
+
+         return true;
+     }
 }
