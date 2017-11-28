@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MediaItemDetailActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".MediaItemDetailActivity"></activity>
     </application>
 
 </manifest>
