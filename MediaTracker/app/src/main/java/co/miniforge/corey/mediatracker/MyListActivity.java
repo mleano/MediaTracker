@@ -133,4 +133,10 @@ public class MyListActivity extends AppCompatActivity {
         storageUtil.saveMediaData(mediaItems);
         updateMediaItems(storageUtil.getMediaDataList());
     }
+
+    public void addMediaItem(MediaItem item) {
+        this.mediaItems.add(item);
+        storageUtil.saveMediaData(mediaItems);
+        updateMediaItems(mediaItems);
+    }
 }
