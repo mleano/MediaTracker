@@ -163,16 +163,13 @@ public class MyListActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch(menuItem.getItemId()) {
-            case R.id.action_settings:
-                //Go to settings activity
-                ;
+            case R.id.sort_by_name:
+                MediaItemSortHelper.sortByName(menuItem);
         }
-
-        return true;
-    }
+    }*/
 
 
 }
