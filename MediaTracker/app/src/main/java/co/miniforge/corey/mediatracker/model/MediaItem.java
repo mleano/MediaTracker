@@ -73,8 +73,6 @@ public class MediaItem {
                 return "Movie";
             case TV:
                 return "TV";
-            case YouTube:
-                return "YouTube";
             default:
                 return "Generic";
         }
