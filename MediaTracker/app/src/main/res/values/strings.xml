@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">MediaTracker</string>
     <string name="action_settings">Settings</string>
-    <string name="sorting_by_name">Sort: Name</string>
-    <string name="sorting_by_type">Sort: Type</string>
 </resources>
