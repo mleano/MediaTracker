@@ -32,9 +32,6 @@ public class ThemeHelper {
             themeDarkBg = ContextCompat.getColor(context, R.color.themeDarkBg);
             themeDarkContainer = ContextCompat.getColor(context, R.color.themeDarkContainer);
             themeDarkText = ContextCompat.getColor(context, R.color.themeDarkText);
-
-            //This stores a simple key/value pair for the current theme
-            sharedPref = context.getSharedPreferences("theme", 0);
         } catch (Exception e) {
 
         }
@@ -42,35 +39,17 @@ public class ThemeHelper {
 
 
     //Methods
-    public boolean darkThemeEnabled(){
-        return sharedPref.getBoolean("darkTheme", false);
+    public boolean darkThemeEnabled() {
+        return false;
     }
 
-    public void enableDarkTheme(boolean enabled){
-        sharedPref.edit().putBoolean("darkTheme", enabled).apply();
-    }
+    public void enableDarkTheme(boolean enabled) {}
 
-    public void themeTextView(TextView...textviews) {
-        boolean dark = darkThemeEnabled();
+    public void themeTextView(TextView...textviews) {}
 
-        for(TextView textView : textviews) {
-            textView.setTextColor(dark ? themeDarkText : themeLightText);
-        }
-    }
+    public void themeImageContainer(View...containers) {}
 
-    public void themeImageContainer(View...containers) {
-        boolean dark = darkThemeEnabled();
-
-        for(View view : containers) {
-            view.setBackgroundColor(dark ? themeDarkContainer : themeLightContainer);
-        }
-    }
-
-    public void themeBackground(View rootview) {
-        boolean dark = darkThemeEnabled();
-
-        rootview.setBackgroundColor(dark ? themeDarkBg : themeLightBg);
-    }
+    public void themeBackground(View rootview) {}
 
 
 }
