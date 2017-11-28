@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="URL"
         android:inputType="text"
@@ -48,10 +48,12 @@
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="20dp"
         android:text="save"
-        app:layout_constraintStart_toStartOf="@+id/url_input"
-        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+        app:layout_constraintEnd_toEndOf="@+id/total_episodes_input"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/total_episodes_input"
+        app:layout_constraintTop_toBottomOf="@+id/total_episodes_input" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -65,4 +67,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tv_pic" />
+
+    <EditText
+        android:id="@+id/episodes_watched_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="episodes watched"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url_input" />
+
+    <EditText
+        android:id="@+id/total_episodes_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="total episodes"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/episodes_watched_input" />
 </android.support.constraint.ConstraintLayout>
