@@ -23,7 +23,6 @@ import java.util.List;
 import co.miniforge.corey.mediatracker.media_recycler.MediaRecyclerAdapter;
 import co.miniforge.corey.mediatracker.media_store.MediaStorageUtil;
 import co.miniforge.corey.mediatracker.model.MediaItem;
-import co.miniforge.corey.mediatracker.ui_helpers.ThemeHelper;
 
 public class MyListActivity extends AppCompatActivity {
     public static String mediaExtra = "mediaExtra";
@@ -33,8 +32,6 @@ public class MyListActivity extends AppCompatActivity {
     FloatingActionButton add_media_item_button;
 
     MediaStorageUtil storageUtil;
-
-    ThemeHelper themeHelper;
 
     List<MediaItem> mediaItems = new LinkedList<>();
 
@@ -46,9 +43,6 @@ public class MyListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         storageUtil = new MediaStorageUtil(getApplicationContext());
-
-        //Initialize ThemeHelper
-        themeHelper = new ThemeHelper(getApplicationContext());
 
         locateViews();
 
