@@ -99,6 +99,21 @@ public class MediaItemDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Call function to prompt a confirmation dialog before saving
                 promptConfirmation();
+
+                //Create intent that would direct back to MyListActivity
+                Intent intent = new Intent(getApplicationContext(), MyListActivity.class);
+
+                //Reassign title, description, and url of media item with values from
+                //the string extra
+                mediaItem.title = title.getText().toString();
+                mediaItem.description = description.getText().toString();
+                mediaItem.url = url.getText().toString();
+
+                //Pass the media item into the intent as a string extra using the tag
+                // in the MyListActivity
+                intent.putExtra(MyListActivity.mediaExtra, mediaItem.toJson().toString());
+
+                startActivity(intent);
             }
         });
     }
@@ -116,21 +131,6 @@ public class MediaItemDetailActivity extends AppCompatActivity {
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // Put the start activity with intent code here
-
-                //Create intent that would direct back to MyListActivity
-                Intent intent = new Intent(getApplicationContext(), MyListActivity.class);
-
-                //Reassign title, description, and url of media item with values from
-                //the string extra
-                mediaItem.title = title.getText().toString();
-                mediaItem.description = description.getText().toString();
-                mediaItem.url = url.getText().toString();
-
-                //Pass the media item into the intent as a string extra using the tag
-                // in the MyListActivity
-                intent.putExtra(MyListActivity.mediaExtra, mediaItem.toJson().toString());
-
-                startActivity(intent);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
