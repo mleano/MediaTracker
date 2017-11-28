@@ -161,12 +161,12 @@ public class MyListActivity extends AppCompatActivity {
      public boolean onOptionsItemSelected(MenuItem item) {
          switch(item.getItemId()) {
              case R.id.sort_by_name:
-                 MediaItemSortHelper.sortByName(mediaItems);
+                 mediaItems = MediaItemSortHelper.sortByName(mediaItems);
                  storageUtil.saveMediaData(mediaItems);
                  updateMediaItems(storageUtil.getMediaDataList());
                  break;
              case R.id.sort_by_type:
-                 MediaItemSortHelper.sortByType(mediaItems);
+                 mediaItems = MediaItemSortHelper.sortByType(mediaItems);
                  storageUtil.saveMediaData(mediaItems);
                  updateMediaItems(storageUtil.getMediaDataList());
                  break;
