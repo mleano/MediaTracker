@@ -90,13 +90,30 @@ public class MediaItemDetailActivity extends AppCompatActivity {
     }
 
     //Function to bind click listener to the save button. When clicked
-    //the media item should be updated.
+    //prompt user for a confirmation.
     private void bindFunctionality() {
         //When the Save button is clicked, update the media item retrieved
         //from the intent with the values that are in the EditText fields
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                promptConfirmation();
+            }
+        });
+    }
+
+    //Method that prompts the user for a confirmation
+    private void promptConfirmation() {
+        //https://developer.android.com/guide/topics/ui/dialogs.html#AlertDialog
+        //Make sure to put the code in the activity, the builder requires an activity to be passed in
+        //import android.support.v7.app for the alert dialog
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Save Changes").setMessage("Are you sure you want to save these changes?");
+
+        //If user confirms (saves), update media item
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
                 //Create intent that would direct back to MyListActivity
                 Intent intent = new Intent(getApplicationContext(), MyListActivity.class);
 
@@ -111,22 +128,6 @@ public class MediaItemDetailActivity extends AppCompatActivity {
                 intent.putExtra(MyListActivity.mediaExtra, mediaItem.toJson().toString());
 
                 startActivity(intent);
-            }
-        });
-    }
-
-    //Method that prompts the user for a confirmation
-    private void promptConfirmation() {
-        //https://developer.android.com/guide/topics/ui/dialogs.html#AlertDialog
-        //Make sure to put the code in the activity, the builder requires an activity to be passed in
-        //import android.support.v7.app for the alert dialog
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Save Changes").setMessage("Are you sure you want to save these changes?");
-
-        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // Put the start activity with intent code here
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
