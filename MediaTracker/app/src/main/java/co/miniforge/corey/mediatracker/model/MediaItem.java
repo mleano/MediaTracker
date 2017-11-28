@@ -90,6 +90,7 @@ public class MediaItem {
             mediaItem.put("url", this.url);
 
             mediaItem.put("type", getStringForType(this.type));
+            //mediaItem.put("type", this.type);
         } catch (Exception e){
             Log.e("toJSONError", String.format("There was an error: %s", e.getMessage()));
         }

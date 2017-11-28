@@ -52,7 +52,6 @@ public class MediaViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        //To delete media item on long click
         inflated.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {

@@ -169,13 +169,6 @@ public class MyListActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(intent);
-                break;
-            case R.id.sort_by_name:
-                //do something
-                break;
-            case R.id.sort_by_type:
-                //do something
-                break;
         }
 
         return true;
