@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -83,11 +84,17 @@ public class MyListActivity extends AppCompatActivity {
         add_media_item_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PopupMenu menu = new PopupMenu(view.getContext(), view);
+
+                menu.inflate(R.menu.add_menu);
+                menu.setOnMenuItemClickListener(new AddPopUpMenuHelper((MyListActivity) view.getContext()));
+                menu.show();
+
                 //Create new empty media item
-                MediaItem item = new MediaItem();
+                /*MediaItem item = new MediaItem();
                 mediaItems.add(item);
                 storageUtil.saveMediaData(mediaItems);
-                updateMediaItems(mediaItems);
+                updateMediaItems(mediaItems);*/
             }
         });
 
