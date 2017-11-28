@@ -42,6 +42,12 @@ public class MediaItemSortHelper {
 
     public static List<MediaItem> sortByType(List<MediaItem> items){
         MediaItem[] itemArray = new MediaItem[items.size()];
+
+        //Populate array with items in list
+        for (int i = 0; i < items.size(); i++) {
+            itemArray[i] = items.get(i);
+        }
+
         Arrays.sort(itemArray, new Comparator<MediaItem>() {
             @Override
             public int compare(MediaItem mediaItem, MediaItem t1) {
