@@ -55,8 +55,6 @@ public class MediaItemDetailActivity extends AppCompatActivity {
 /*        //Call function to bind click listener to save button. When the save button
         //is clicked, the media item info are updated
         bindFunctionality();*/
-
-        createFragmentForMediaItemType(mediaItem);
     }
 
 /*    //Function to locate and store the views
