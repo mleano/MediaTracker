@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -148,22 +147,4 @@ public class MyListActivity extends AppCompatActivity {
         storageUtil.saveMediaData(mediaItems);
         updateMediaItems(mediaItems);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_my_list, menu);
-
-        return true;
-    }
-
-/*    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch(menuItem.getItemId()) {
-            case R.id.sort_by_name:
-                MediaItemSortHelper.sortByName(menuItem);
-        }
-    }*/
-
-
 }
